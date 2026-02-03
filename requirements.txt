@@ -1,0 +1,19 @@
+# Speech Deepfake Detection API - Requirements
+
+# FastAPI and server
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+pydantic==2.5.3
+
+# Machine Learning
+torch==2.1.2
+torchaudio==2.1.2
+
+# Audio Processing
+librosa==0.10.1
+soundfile==0.12.1
+numpy==1.24.3
+
+# Utilities
+tqdm==4.66.1
