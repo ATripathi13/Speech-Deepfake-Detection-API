@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: speech-deepfake-api
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && gunicorn -k uvicorn.workers.UvicornWorker main:app
+    envVars:
+      - key: MODEL_PATH
+        value: model.pt
+      - key: VALID_API_KEYS
+        value: demo-key-12345
+      - key: PYTHON_VERSION
+        value: 3.10.12
