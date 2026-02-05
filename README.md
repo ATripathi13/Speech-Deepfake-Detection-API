@@ -319,9 +319,9 @@ python auth.py
 python main.py
 ```
 
-## 📝 License
+## 📝 Note
 
-This project is licensed under the MIT License.
+This project is under the production phase and not yet completed to deploy.
 
 ## 🤝 Contributing
 
@@ -341,3 +341,4 @@ For questions or support, please open an issue on GitHub.
 ---
 
 **Built with ❤️ for audio forensics and deepfake detection**
+
