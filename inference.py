@@ -39,7 +39,7 @@ def load_model(model_path: str = "model.pt", device: str = "cpu") -> DeepfakeDet
         return model
         
     except FileNotFoundError:
-        print(f"⚠ Model file not found at {model_path}")
+        print(f"Warning: Model file not found at {model_path}")
         print(f"  Using untrained model (for testing only)")
         model.eval()
         return model

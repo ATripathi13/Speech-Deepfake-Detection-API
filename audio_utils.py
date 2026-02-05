@@ -7,7 +7,6 @@ Handles Base64 decoding, resampling, mel spectrogram extraction, and normalizati
 import base64
 import io
 import torch
-import torchaudio
 import librosa
 import numpy as np
 from typing import Tuple
@@ -31,16 +30,9 @@ def decode_base64_audio(base64_string: str, audio_format: str = "mp3") -> Tuple[
         # Create file-like object
         audio_buffer = io.BytesIO(audio_bytes)
         
-        # Load audio using torchaudio
-        waveform, sample_rate = torchaudio.load(audio_buffer, format=audio_format)
-        
-        # Convert to numpy and ensure mono
-        waveform_np = waveform.numpy()
-        if waveform_np.shape[0] > 1:
-            # Convert stereo to mono by averaging channels
-            waveform_np = np.mean(waveform_np, axis=0)
-        else:
-            waveform_np = waveform_np[0]
+        # Load audio using librosa
+        audio_buffer.seek(0)
+        waveform_np, sample_rate = librosa.load(audio_buffer, sr=None, mono=True)
         
         return waveform_np, sample_rate
         

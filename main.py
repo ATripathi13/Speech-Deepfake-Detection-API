@@ -135,9 +135,9 @@ async def load_model_on_startup():
     try:
         print(f"Loading model from {model_path}...")
         MODEL = load_model(model_path, device=DEVICE)
-        print("✓ Model loaded successfully and ready for inference")
+        print("Model loaded successfully and ready for inference")
     except Exception as e:
-        print(f"⚠ Warning: Could not load pre-trained model: {e}")
+        print(f"Warning: Could not load pre-trained model: {e}")
         print("  Loading untrained model for testing purposes")
         MODEL = DeepfakeDetectionCNN()
         MODEL.eval()
